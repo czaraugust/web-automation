@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+<!--div bem vindo-->
+	<div style="background-color: #696969;margin: 10px 10px 10px 10px; text-align: center; width:1300px;">
+		<h1 style= "font-family: 'Roboto', sans-serif; color: #FFFAF0; padding: 50px;">
+			Bem vindo a sua casa inteligente!
+		</h1>
+	</div>
+<!--Div principal-->
+<div style="background-color: #68838B;width:1300px;height:550px; position: absolute; margin: 10px 10px 10px 10px; z-index: 3;">
+	<!--div informaçao-->
+	<div style="background-color: #E0FFFF; width: 400px; height: 300px; position: absolute; left: 50%; top: 50%; margin: -150px 0 0 -200px; font-family: 'Sarabun'; font-size: 1em;z-index: 2">
+		<div style="z-index: 1; background-color:#FFF5EE; font-size: 2em; color: black; font-family: 'Sarabun'; text-align: center;" >
+			Informações:
+</div>
+<div>
+	<table>
+	<tr>
+		<td><img src="umidade.png" width="50" style=" margin-top:  50px; float: left; padding-left:40px;"></td>
+		<td><p style="margin-top: 55px; padding-left: 5px;">50</p></td>
+</tr>
+<tr>
+		<td><img src="temperatura2.png" width="50" style="margin-top:  50px; float: left; padding-left:40px; ">
+		</td>
+		<td><p style="margin-top: 55px; padding-left: 5px;">30º</p></td>
+	</tr>
+	</table>
+
+</div>
+<div class="col s12 m6">
+	<div class="card">
+		<div class="card-image center">
+			<i class="material-icons statistic">my_location</i>
+		</div>
+		<div class="card-content">
+			<p id="currentPresence" class="card-title grey-text text-darken-4">
+				Presença
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+
+	<!-- <img src="presenca.png" style="width:50px; position: absolute;z-index: 1; float: right;margin-top: -160px; padding-left: 250PX;">
+	<p id= "pres" style="margin-top: -150px; float: right; padding-right: 50px;">Ativo</p>
+	<img src="fire.png" width="50" style="position: absolute;z-index: 1; float: right;margin-top: -50px; padding-left: 250PX;">
+	<p style="margin-top: -30px; float: right; padding-right: 30px;">Não ativo</p> -->
+</div>
+
+<!--sala-->
+	<div style="width: 300px; height: 250px; float: left; background-color: #BC8F8F; z-index: 2;">
+		<div style="z-index: 1; background-color:#FFF5EE; font-size: 2em; color: black; font-family: 'Sarabun'; " >
+			Acesse a sala!
+		</div>
+		<a href="html/sala.html"> <img src="img/sala2.png" height="150" style="float: left; padding-top:30px; padding-left:70px; "> </a>
+	</div>
+<!--div jardim-->
+	<div style="width: 300px; height: 250px;background-color: #BC8F8F; z-index: 2;float: right;">
+		<div style="z-index: 1; background-color:#FFF5EE; font-size: 2em; color: black; font-family: 'Sarabun'; " >
+			Acesse o jardim!
+		</div>
+		<a href="html/jardim.html"> <img src="img/garden.png" height="150" style="padding-top:30px; padding-left:70px;"> </a>
+	</div>
+<!--div camera-->
+	<div style="width: 300px; height: 250px;background-color: #BC8F8F; z-index: 2;float: right; margin-top: 50px; margin-left: 500px;">
+		<div style="z-index: 1; background-color:#FFF5EE; font-size: 2em; color: black; font-family: 'Sarabun'; " >
+			Acesse a câmera!
+		</div>
+
+		<a href="html/camera.html"> <img src="img/camera.png" height="150" style="padding-top:30px; padding-left:70px;"> </a>
+	</div>
+
+<!--div quarto-->
+<div style="width: 300px; height: 250px;background-color: #BC8F8F; z-index: 2;float: left; margin-top:50px;">
+		<div style="z-index: 1; background-color:#FFF5EE; font-size: 2em; color: black; font-family: 'Sarabun'; " >
+			Acesse o quarto!
+		</div>
+
+		<a href="html/quarto.html"> <img src="img/quarto2.png" height="150" style="padding-top:30px; padding-left:70px;"> </a>
+	</div>
+
+<!--footer-->
+	<footer style="width: 100%; float: left; background-color:#696969;">
+		<p style="color: #fff;"> @Instituto Federal de Alagoas - IFAL / Aluna: Isabela Molina - todos os direitos reservados</p>
+	</footer>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDYzpLV1KFqK-a5kMpGqpRZJiDfLIaiLrg",
+    authDomain: "automacaoresidencial-87865.firebaseapp.com",
+    databaseURL: "https://automacaoresidencial-87865.firebaseio.com",
+    projectId: "automacaoresidencial-87865",
+    storageBucket: "automacaoresidencial-87865.appspot.com",
+    messagingSenderId: "227011020468"
+  };
+  firebase.initializeApp(config);
+  var db = firebase.database();
+
+// var lampRef = db.ref('lamp');
+// var currentLampValue = false;
+// lampRef.on('value', function(snapshot){
+// 	var value = snapshot.val();
+// 	var el = document.getElementById('btn')
+// 	if(value){
+// 		el.classList.add('amber-text');
+// 	}else{
+// 		el.classList.remove('amber-text');
+// 	}
+// 	currentLampValue = !!value;
+// });
+//
+// var btnLamp = document.getElementById('btn');
+// btnLamp.addEventListener('click', function(evt){
+// lampRef.set(!currentLampValue);
+// //});
+//
+// });
+
+
+
+
+
+
+  db.ref('presence').on('value', function(snapshot) {
+		 var value = snapshot.val();
+		 console.log("presenca")
+		 console.log(value)
+
+		 var el = document.getElementById('currentPresence')
+
+		 if(value){
+			 el.classList.add('green-text');
+
+		 }else{
+			 el.classList.remove('green-text');
+
+		 }
+	});
+
+
+   // presenceRef.on('value', function(snapshot){
+   //    var value = snapshot.val();
+   //    var el = document.getElementById('currentPresence')
+   //    if(value){
+   //      el.classList.add('green-text');
+   //    }else{
+   //      el.classList.remove('green-text');
+   //    }
+   //  });
+</script>
+
+<style>
+	.green-text {
+		color: green;
+	}
+</style>
+</body>
+</html>

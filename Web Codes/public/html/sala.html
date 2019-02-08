@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/salacss.css">
+
+	<style>
+</style>
+
+</head>
+
+<body>
+
+<!-- div de cima-->
+
+		<div style="border-color: #000 #090 #900 #009; background-color:#D2B48C;">
+			<h1 style="text-align: center;padding:50px; font-family: 'Roboto', sans-serif;color:#000000;"><img src="../img/sala.png" width="100" style="position: absolute; top: 30px; left: 150px;"> Bem vindo ao painel de controle da sua sala!</h1></div>
+<!-- Principal-->
+<!-- Luz-->
+		<div>
+		<div style="background-color: #FFFFE0; font-family:'Roboto', sans-serif; font-family:'Ubuntu',sans-serif; text-align: left; font-size: 3em; width: 100%; height: 100%; margin-top: 10px;"> luz
+			<img src="../img/luz.png" width="35" style="padding-top: 5px;">
+
+
+			<div class="">
+
+
+			</div>
+			<button id = "btn2" type="button">Click Me!</button>
+
+
+    <!-- <div class="onoffswitchl">
+        <input type="checkbox" name="onoffswitchl" class="onoffswitchl-checkbox" id="myonoffswitchl" checked>
+        <label class="onoffswitchl-label" for="myonoffswitchl">
+            <span class="onoffswitchl-inner"></span>
+            <span class="onoffswitchl-switch"></span>
+        </label>
+    </div> -->
+
+		 </div>
+<!-- TV -->
+		<div style="background-color: #FFFFE0; font-family:'Roboto', sans-serif; font-family:'Ubuntu',sans-serif; text-align: left; font-size: 2.5em; width: 100%; height: 100%; margin-top: 10px;"> TV
+			<img src="../img/tv.png" width="35" style="padding-top: 5px;">
+
+    <div class="onoffswitchtv">
+        <input  type="checkbox" name="onoffswitchtv" class="onoffswitchtv-checkbox" id="myonoffswitchtv" checked>
+        <label class="onoffswitchtv-label" for="myonoffswitchtv">
+            <span class="onoffswitchtv-inner"></span>
+            <span class="onoffswitchtv-switch"></span>
+        </label>
+    </div>
+
+		 </div>
+<!--ventilador-->
+
+
+<div style="background-color: #FFFFE0; font-family:'Roboto', sans-serif; font-family:'Ubuntu',sans-serif; text-align: left; font-size: 2.5em; width: 100%; height: 100%; margin-top: 10px;"> Ventilador
+	<img src="../img/ventilador.png" width="35" style="padding-top: 10px;">
+
+    <div class="onoffswitchv">
+        <input type="checkbox" name="onoffswitchv" class="onoffswitchv-checkbox" id="myonoffswitchtv" checked>
+        <label class="onoffswitchv-label" for="myonoffswitchv">
+            <span class="onoffswitchv-inner"></span>
+            <span class="onoffswitchv-switch"></span>
+        </label>
+    </div>
+
+		 </div>
+
+<!-- porta -->
+
+<div style="background-color: #FFFFE0; font-family:'Roboto', sans-serif; font-family:'Ubuntu',sans-serif; text-align: left; font-size: 2.5em; width: 100%; height: 100%; margin-top: 10px;"> Porta
+	<img src="../img/porta.jfif" width="35" style="padding-top: 10px;">
+
+     <div class="onoffswitchp">
+        <input type="checkbox" name="onoffswitchp" class="onoffswitchp-checkbox" id="myonoffswitchp" checked>
+        <label class="onoffswitchp-label" for="myonoffswitchp">
+            <span class="onoffswitchp-inner"></span>
+            <span class="onoffswitchp-switch"></span>
+        </label>
+    </div>
+
+		 </div>
+
+<!-- dvd player-->
+
+<div style="background-color: #FFFFE0; font-family:'Roboto', sans-serif; font-family:'Ubuntu',sans-serif; text-align: left; font-size: 2.5em; width: 100%; height: 100%; margin-top: 10px;"> DVD player
+		<img src="../img/dvd.png" width="35" style="padding-top: 10px;">
+
+		<div class="onoffswitchdvd">
+        <input type="checkbox" name="onoffswitchdvd" class="onoffswitchdvd-checkbox" id="myonoffswitchdvd" checked>
+        <label class="onoffswitchdvd-label" for="myonoffswitchdvd">
+             <span class="onoffswitchdvd-inner"></span>
+            <span class="onoffswitchdvd-switch"></span>
+        </label>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+	console.log("script")
+  var config = {
+    apiKey: "AIzaSyDYzpLV1KFqK-a5kMpGqpRZJiDfLIaiLrg",
+    authDomain: "automacaoresidencial-87865.firebaseapp.com",
+    databaseURL: "https://automacaoresidencial-87865.firebaseio.com",
+    projectId: "automacaoresidencial-87865",
+    storageBucket: "automacaoresidencial-87865.appspot.com",
+    messagingSenderId: "227011020468"
+  };
+  firebase.initializeApp(config);
+  var db = firebase.database();
+
+var lampRef = db.ref('lamp');
+console.log(lampRef)
+var currentLampValue = false;
+lampRef.on('value', function(snapshot){
+	var value = snapshot.val();
+	var el = document.getElementById('btn2')
+	currentLampValue = !!value;
+});
+
+var btnLamp = document.getElementById('btn2');
+//btnLamp.addEventListener('toggle', function(evt){
+btnLamp.addEventListener('click', myfunc)
+function myfunc(){
+lampRef.set(!currentLampValue);
+}
+
+
+
+//});
+
+//});
+</script>
+
+</body>
+</html>
